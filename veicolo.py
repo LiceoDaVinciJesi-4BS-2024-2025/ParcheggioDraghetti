@@ -2,9 +2,15 @@
 #4 BS
 #Veicolo
 
+marche = ["bmw", "porsche", "ferrari", "fiat", "nissan", "toyota", "maybach"]
+colori = ["bianco", "nero", "blu", "rosso", "grigio", "arancione"]
+alimentazioni = ["benzina", "diesel", "metano", "gpl", "ibrido"]
+lettere = "QWERTYUIOPASDFGHJKLZXCVBNM"
+numeri = "1234567890"
+
 class Veicolo:
     
-    def __init__(self, marca, modello, colore, cilindrata(int), alimentazione, targa):
+    def __init__(self, marca, modello, colore, cilindrata, alimentazione, targa):
         self.__marca = marca
         self.__modello = modello
         self.__colore = colore
@@ -42,7 +48,7 @@ class Veicolo:
         return
 
     @property
-    def cilindra(self):
+    def cilindrata(self):
         return self.__cilindrata
     
     @cilindrata.setter
@@ -51,7 +57,36 @@ class Veicolo:
             raise ValueError("")
         self.__cilindrata = value
         return
-#
+
     @property
-    def perimetro(self):
-        return (self.__base + self.__altezza) * 2
+    def alimentazione(self):
+        return self.__alimentazione
+    
+    @alimentazione.setter
+    def alimentazione(self, value):
+        if self.__alimentazione not in alimentazioni:
+            raise ValueError("")
+        self.__alimentazione = value
+        return
+    
+    @property
+    def targa(self):
+        return self.__targa
+    
+    @cilindrata.setter
+    def targa(self, value):
+        if len(value) != 7 or value[0] not in lettere or value[1] not in lettere or value[2] not in numeri or value[3] not in numeri or value[4] not in numeri or value[5] not in lettere or value[6] not in lettere:
+            raise ValueError("")
+        self.__targa = value
+        return
+    
+    def __lt__ (self, other):
+        if self.__marca < other.__marca:
+            return True
+        elif self.__marca == other.__marca:
+            if self.__modello < other.__modello:
+                return True
+            elif self.__modello == other.__modello:
+                if self.__cilindrata < other.__cilindrata:
+                    return True
+        return False
