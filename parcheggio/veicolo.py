@@ -73,7 +73,7 @@ class Veicolo:
     def targa(self):
         return self.__targa
     
-    @cilindrata.setter
+    @targa.setter
     def targa(self, value):
         if len(value) != 7 or value[0] not in lettere or value[1] not in lettere or value[2] not in numeri or value[3] not in numeri or value[4] not in numeri or value[5] not in lettere or value[6] not in lettere:
             raise ValueError("")
