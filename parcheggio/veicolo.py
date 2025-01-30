@@ -10,7 +10,7 @@ numeri = "1234567890"
 
 class Veicolo:
     
-    def __init__(self, marca, modello, colore, cilindrata, alimentazione, targa):
+    def __init__(self, targa, marca = "bmw", modello = "M3E92", colore = "nero", cilindrata = 4000, alimentazione = "benzina"):
         self.__marca = marca
         self.__modello = modello
         self.__colore = colore
