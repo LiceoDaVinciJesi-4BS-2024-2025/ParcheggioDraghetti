@@ -55,5 +55,7 @@ class PostoMezzo:
     
     @partenza.setter
     def partenza(self, value):
+        if self.__partenza < datetime.datetime.now():
+            raise ValueError("")
         self.__partenza = value
         return
