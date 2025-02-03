@@ -42,6 +42,7 @@ class Veicolo:
     
     @colore.setter
     def colore(self, value):
+        # PROF: if value not in colori...
         if self.__colore not in colori:
             raise ValueError("")
         self.__colore = value
@@ -64,6 +65,7 @@ class Veicolo:
     
     @alimentazione.setter
     def alimentazione(self, value):
+        # PROF: if value not in alimentazioni...
         if self.__alimentazione not in alimentazioni:
             raise ValueError("")
         self.__alimentazione = value
@@ -90,3 +92,5 @@ class Veicolo:
                 if self.__cilindrata < other.__cilindrata:
                     return True
         return False
+
+# PROF: mancano i test
